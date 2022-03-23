@@ -34,8 +34,6 @@ public class Room implements IRoom {
         return false;
     }
 
-
-
     public String toString() {
         return ("Room number: " + roomNumber + " " + enumeration + " rooms available for this price $ " + roomPrice);
     }

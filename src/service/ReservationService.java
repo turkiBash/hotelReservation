@@ -21,10 +21,15 @@ public class ReservationService {
         return reservationService;
     }
 
-    public void addRoom(String roomNumber, Double price, RoomType roomType) {
+    public boolean addRoom(String roomNumber, Double price, RoomType roomType) {
         Room room = new Room(roomNumber, price, roomType);
         rooms.add(room);
+        if(!rooms.add(room)){
+            return false;
+        }
+        return true;
     }
+
 
     public IRoom getARoom(String roomNumber) {
         for (IRoom room : rooms) {
