@@ -10,20 +10,16 @@ import service.ReservationService;
 import java.util.Collection;
 
 public class AdminResource {
-
     public static final CustomerService customerService = new CustomerService();
-    public static final ReservationService reservationService = new ReservationService();
-
+    public static final ReservationService reservationService = ReservationService.getInstance();
 
     public Customer getCustomer(String email) {
-
         return customerService.getCustomer(email);
     }
 
     public static void createRooms(String roomNumber, Double price, RoomType roomType) {
-            reservationService.addRoom(roomNumber, price, roomType);
+        reservationService.addRoom(roomNumber, price, roomType);
         System.out.println("room has been created");
-
     }
 
     public static Collection<IRoom> getAllRooms() {
@@ -35,7 +31,6 @@ public class AdminResource {
     }
 
     public static Collection<Reservation> getAllReservations() {
-       return reservationService.getAllReservations();
+        return reservationService.getAllReservations();
     }
 }
-
